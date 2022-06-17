@@ -1,0 +1,9 @@
+sonar-scanner.bat \
+  -D"sonar.organization=edoman000" \
+  -D"sonar.projectKey=testProjectISPW" \
+  -D"sonar.sources=." \
+  -D"sonar.host.url=https://sonarcloud.io"
+
+Attenzione: stare nella cartella trunk su terminale
+
+SONAR TOKEN: f490c8238c4ec0db3e386a206954421c506b361b
