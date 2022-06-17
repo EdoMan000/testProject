@@ -15,6 +15,7 @@ import java.awt.datatransfer.StringSelection;
 
 public class HelloController {
 
+    public static final String SYSTEM = "System";
     @FXML private RadioButton boldRadioButton;
     @FXML private Button copyToClipboardButton;
     @FXML private ColorPicker colorPicker;
@@ -28,13 +29,13 @@ public class HelloController {
         resultText.setText(myText);
         resultText.setTextFill(colorPicker.getValue());
         if(italicRadioButton.isSelected() && boldRadioButton.isSelected()){
-            resultText.setFont(Font.font("System", FontWeight.BOLD, FontPosture.ITALIC, 24));
+            resultText.setFont(Font.font(SYSTEM, FontWeight.BOLD, FontPosture.ITALIC, 24));
         }else if(italicRadioButton.isSelected()){
-            resultText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.ITALIC, 24));
+            resultText.setFont(Font.font(SYSTEM, FontWeight.NORMAL, FontPosture.ITALIC, 24));
         }else if(boldRadioButton.isSelected()){
-            resultText.setFont(Font.font("System", FontWeight.BOLD, FontPosture.REGULAR, 24));
+            resultText.setFont(Font.font(SYSTEM, FontWeight.BOLD, FontPosture.REGULAR, 24));
         }else{
-            resultText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 24));
+            resultText.setFont(Font.font(SYSTEM, FontWeight.NORMAL, FontPosture.REGULAR, 24));
         }
         resultText.setUnderline(underlinedRadioButton.isSelected());
         resultText.setVisible(true);

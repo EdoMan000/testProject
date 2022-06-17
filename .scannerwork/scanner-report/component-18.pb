@@ -1,1 +1,1 @@
- 2xmlXhr9.idea/libraries/Maven__org_openjfx_javafx_graphics_18.xml
+ 2xmlXhr=.idea/libraries/Maven__org_openjfx_javafx_graphics_18_0_1.xml
