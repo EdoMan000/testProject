@@ -1,19 +1,17 @@
 package com.example.thisisatest;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.paint.Color;
+import javafx.scene.control.*;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
-import java.awt.font.TextAttribute;
-import java.util.Map;
 
 public class HelloController {
 
@@ -25,15 +23,20 @@ public class HelloController {
     @FXML private Label resultText;
     @FXML private RadioButton underlinedRadioButton;
 
-    @FXML void customizeButtonAction(ActionEvent event) {
-        Color textColor = colorPicker.getValue();
+    @FXML void customizeButtonAction() {
         String myText = inputText.getText();
         resultText.setText(myText);
-        Font startFont = resultText.getFont();
-        Map attributes = startFont.getAttributes();
-        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-        resultText.setFont(startFont.deriveFont(attributes));
-        resultText.setStyle(String.format("-fx-text-fill: %s", textColor));
+        resultText.setTextFill(colorPicker.getValue());
+        if(italicRadioButton.isSelected() && boldRadioButton.isSelected()){
+            resultText.setFont(Font.font("System", FontWeight.BOLD, FontPosture.ITALIC, 24));
+        }else if(italicRadioButton.isSelected()){
+            resultText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.ITALIC, 24));
+        }else if(boldRadioButton.isSelected()){
+            resultText.setFont(Font.font("System", FontWeight.BOLD, FontPosture.REGULAR, 24));
+        }else{
+            resultText.setFont(Font.font("System", FontWeight.NORMAL, FontPosture.REGULAR, 24));
+        }
+        resultText.setUnderline(underlinedRadioButton.isSelected());
         resultText.setVisible(true);
         copyToClipboardButton.setVisible(true);
     }
@@ -42,6 +45,10 @@ public class HelloController {
         StringSelection stringSelection = new StringSelection(resultText.getText());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
+        alertCopySuccessful();
+    }
+
+    private void alertCopySuccessful() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("DONE");
         alert.setHeaderText("Text successfully copied to clipboard!");
