@@ -1,0 +1,7 @@
+organization=edoman000
+projectKey=testProjectISPW
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.29762
+dashboardUrl=https://sonarcloud.io/dashboard?id=testProjectISPW
+ceTaskId=AYFxITXf8zqbvqhBTeTv
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYFxITXf8zqbvqhBTeTv

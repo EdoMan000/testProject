@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.thisisatest.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<Pane prefHeight="314.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.thisisatest.HelloController">
+   <children>
+      <VBox alignment="CENTER" layoutX="26.0" layoutY="93.0" prefHeight="217.0" prefWidth="317.0" spacing="20.0">
+          <padding>
+              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+          </padding>
+         <TextField fx:id="inputText" promptText="Write text here:" />
+         <Pane prefHeight="121.0" prefWidth="278.0">
+            <children>
+               <Text layoutX="21.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="choose colour:" />
+               <ColorPicker fx:id="colorPicker" layoutX="135.0" layoutY="5.0" prefHeight="34.0" prefWidth="129.0">
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+                  <value>
+                     <Color />
+                  </value>
+               </ColorPicker>
+            </children>
+         </Pane>
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="35.0">
+            <children>
+               <RadioButton fx:id="boldRadioButton" mnemonicParsing="false" text="Bold">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </RadioButton>
+               <RadioButton fx:id="italicRadioButton" mnemonicParsing="false" text="Italic">
+                  <font>
+                     <Font name="System Italic" size="12.0" />
+                  </font>
+               </RadioButton>
+               <RadioButton fx:id="underlinedRadioButton" mnemonicParsing="false" text="Underlined" underline="true" />
+            </children>
+         </HBox>
+         <Button onAction="#customizeButtonAction" style="-fx-background-radius: 50; -fx-background-color: yellow; -fx-text-fill: black;" text="Customize your text!" />
+      </VBox>
+      <Label fx:id="resultText" alignment="CENTER" layoutX="31.0" layoutY="16.0" prefHeight="35.0" prefWidth="307.0" text="Text Result" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+       <Button fx:id="copyToClipboardButton" layoutX="155.0" layoutY="51.0" onAction="#copyToClipboardButtonAction" style="-fx-background-radius: 50; -fx-background-color: yellow; -fx-text-fill: black;" text="Copy 📋" />
+   </children>
+</Pane>
