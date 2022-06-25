@@ -72,7 +72,7 @@
          <Font size="24.0" />
       </font>
    </Label>
-   <Button fx:id="copyToClipboardButton" layoutX="155.0" layoutY="57.0" onAction="#copyToClipboardButtonAction" style="-fx-background-radius: 50; -fx-background-color: yellow; -fx-text-fill: black;" text="Copy 📋" visible="false">
+   <Button fx:id="copyToClipboardButton" layoutX="109.0" layoutY="65.0" onAction="#copyToClipboardButtonAction" style="-fx-background-radius: 50; -fx-background-color: yellow; -fx-text-fill: black;" text="Copy Text to ClipBoard📋" visible="false">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor>
